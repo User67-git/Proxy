@@ -1,120 +1,24 @@
-anime-browser/
-├── src/
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-├── index.html
-├── package.json
-├── vite.config.js
-├── vercel.json
-├── .gitignore
-{
-  "name": "anime-browser",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.0",
-    "vite": "^5.0.0"
-  }
-}
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+class Dog:
+    def __init__(self, name=None, breed=None, age=None, color=None):
+        self.name = name
+        self.breed = breed
+        self.age = age
+        self.color = color
 
-export default defineConfig({
-  plugins: [react()],
-  build: {
-    outDir: 'dist'
-  },
-  server: {
-    host: true
-  }
-})
-{
-  "builds": [
-    {
-      "src": "vite.config.js",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-  "installCommand": "npm install",
-  "buildCommand": "npm run build"
-}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anime Browser</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
-import React from 'react'
+    def customize(self):
+        self.name = input("What's your dog's name? ")
+        self.breed = input("What breed is your dog? ")
+        self.age = input("How old is your dog? ")
+        self.color = input("What color is your dog? ")
 
-const animeList = [
-  "Naruto",
-  "Bleach",
-  "One Piece",
-  "Dragon Ball Z",
-  "Hunter x Hunter",
-  "Jujutsu Kaisen",
-  "Solo Leveling",
-  "Sousou no Frieren",
-  "Attack on Titan",
-  "Demon Slayer"
-]
+    def describe(self):
+        print("\n🐶 Your Dog:")
+        print(f"Name: {self.name}")
+        print(f"Breed: {self.breed}")
+        print(f"Age: {self.age}")
+        print(f"Color: {self.color}")
 
-function App() {
-  return (
-    <div style={{ padding: '20px' }}>
-      <h1>Anime Browser</h1>
-      <ul>
-        {animeList.map((anime, index) => (
-          <li key={index}>{anime}</li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-export default App
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: #f9f9f9;
-}
-node_modules
-dist
-.vscode
-.env
+# --- Program starts here ---
+my_dog = Dog()
+my_dog.customize()
+my_dog.describe()
